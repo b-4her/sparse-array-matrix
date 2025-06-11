@@ -1,23 +1,23 @@
-# Sparse Matrix (Linked List Implementation)
+# Sparse Array & Matrix (Linked List Implementation)
 
-This is a small C++ program that constructs a **sparse matrix** using **linked lists** for efficient memory usage. Instead of holding the complete matrix, it holds only non-zero elements with a doubly linked list data structure. Rows and individual row entries are dynamically allocated and linked, demonstrating an implicit, pointer-based approach to sparse data representation.
+This is a small C++ project that first builds a **sparse array** using a linked list, and then uses it as the foundation to implement a **sparse matrix**. These structures store only non-zero elements to save memory, using pointer-based linked lists for dynamic and efficient data representation.
 
 ## Features
 
-- Sparse matrix class with support for setting, getting, and printing values  
-- Efficient memory representation using linked lists  
-- Basic operations:
-  - Element insertion
-  - Matrix printing (full and non-zero only)
-  - Matrix addition  
+- Sparse array class for storing non-zero values at specific indices
+- Sparse matrix class built using sparse arrays (array of linked lists)
+- Supports:
+  - Setting and getting values
+  - Printing full and non-zero-only versions
+  - Matrix addition
 
 ## Why This Project?
 
-This mini project was created to explore the logic behind sparse matrix structures using object-oriented programming and linked data structures in C++. It’s suitable for learning:
+This mini project was designed to explore sparse data structures using object-oriented programming in C++. It’s a good exercise for learning:
 
-- Pointer manipulation
-- Memory-efficient data structures
-- Linked list traversal and operations
+- Pointer-based data structures
+- Memory efficiency in sparse data
+- Linked list operations and traversal
 
 ## Example Usage
 
