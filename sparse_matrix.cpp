@@ -285,59 +285,62 @@ class SparseMatrix {
 };
 
 int main() {
+    // Create first sparse array with size 10 and set some non-zero values
     ArrayLinkedList list(10);
     list.set_value(5, 3);
     list.set_value(2, 2);
     list.set_value(7, 5);
     list.set_value(-1, 4);
-    list.set_value(-2, 3);
+    list.set_value(-2, 3);  // overwrite index 3
     list.set_value(-2, 6);
     list.set_value(-2, 0);
-
-    list.print_array_nonzero();
-    list.print_array();
-
+    
+    list.print_array_nonzero(); // Print only non-zero values
+    list.print_array();         // Print full array with zeros
+    
+    // Create second sparse array and add some overlapping and new values
     ArrayLinkedList list2(10);
     list2.set_value(5, 3);
     list2.set_value(2, 2);
     list2.set_value(7, 5);
     list2.set_value(-1, 4);
-    list2.set_value(-2, 3);
+    list2.set_value(-2, 3);  // overwrite index 3
     list2.set_value(-2, 6);
     list2.set_value(-2, 0);
-    list2.set_value(-9, 9);
-
+    list2.set_value(-9, 9);  // new index not in list
+    
     list2.print_array_nonzero();
     list2.print_array();
-
+    
+    // Add list2 to list and print result
     list.add(list2);
     list.print_array_nonzero();
     list.print_array();
-
+    
     cout << "\n";
-
+    
+    // Create first sparse matrix with 10 rows and 10 cols
     SparseMatrix slist(10, 10);
-    slist.set_value(5, 3, 6);
-    slist.set_value(5, 3, 9);
-    slist.set_value(-1, 3, 6);
-    slist.set_value(3, 3, 6);
-    slist.set_value(3, 1, 2);
+    slist.set_value(5, 3, 6);   // row 3, col 6
+    slist.set_value(5, 3, 9);   // overwrite same row, new col
+    slist.set_value(-1, 3, 6);  // overwrite same cell
+    slist.set_value(3, 3, 6);   // overwrite again
+    slist.set_value(3, 1, 2);   // new row
     slist.set_value(3, 2, 2);
     slist.set_value(3, 3, 2);
     slist.set_value(3, 4, 2);
     slist.set_value(3, 5, 2);
-    slist.set_value(7, 8, 2);
-    slist.print_matrix();
-    slist.print_matrix_nonzero();
-    // cout << slist.get_value(3, 9) << "\n";
-    // cout << slist.get_value(8, 2) << "\n";
-    // cout << slist.get_value(8, 3) << "\n";
+    slist.set_value(7, 8, 2);   // new row
+    
+    slist.print_matrix();          // Full matrix output
+    slist.print_matrix_nonzero(); // Only non-zero elements
+    
     cout << "slist2: " << "\n";
-
-
+    
+    // Create second sparse matrix to add to the first one
     SparseMatrix slist2(10, 10);
-    slist2.set_value(33, 0, 6);
-    slist2.set_value(5, 3, 6);
+    slist2.set_value(33, 0, 6);  // new row
+    slist2.set_value(5, 3, 6);   // same row, same col as slist
     slist2.set_value(5, 3, 9);
     slist2.set_value(-1, 3, 6);
     slist2.set_value(3, 3, 6);
@@ -347,8 +350,9 @@ int main() {
     slist2.set_value(3, 4, 2);
     slist2.set_value(3, 5, 2);
     slist2.set_value(7, 8, 2);
-    slist2.set_value(19, 9, 2);
-
+    slist2.set_value(19, 9, 2); // new row
+    
+    // Add slist2 to slist and print result
     slist.add(slist2);
     slist.print_matrix();
     slist.print_matrix_nonzero();
